@@ -35,7 +35,7 @@ layout: default
     </div>
 
     <div class="post__bottom">
-
+      {% if site.share_enabled %}
       <div class="post__share">
         <ul class="share__list list-reset">
           <li class="share__item">
@@ -52,7 +52,7 @@ layout: default
           </li>
         </ul>
       </div>
-
+      {% endif %}
       {% if page.tags.size >= 1 %}
       <div class="post__tags">
         {% for tag in page.tags %}

@@ -13,6 +13,7 @@ author:
   bio: I’m a software engineer interested in mobile Android development, machine learning, algorithms, data structures, and web application development.
   avatar: '/images/mlaine.jpeg'
   show_author: false
+  share_enabled: false
 
 social:
 - {icon: "ion-logo-github", label: Github, link: "https://github.com/mauroLaine"}
