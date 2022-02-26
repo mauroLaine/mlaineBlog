@@ -11,7 +11,7 @@ image: '/images/08.jpg'
     <p class="page-description">{{site.contact.description}}</p>
     {% endif %}
   </div>
-  <form class="form" action="{% if site.contact.email %}https://formspree.io/{{site.contact.email}}{% else %}#{% endif %}" method="POST">
+  <form class="form" action="{% if site.contact.email %}https://getform.io/f/bb48dc0c-85ee-4d3c-8820-cf0914a34e3d{% else %}#{% endif %}" method="POST">
     <div class="form__group">
       <label class="form__label screen-reader-text" for="form-name">Your Name</label>
       <input class="form__input" id="form-name" type="text" name="name" placeholder="Name" required>
