@@ -1,0 +1,63 @@
+I"�<h1 id="fibonacci-number">Fibonacci Number</h1>
+
+<p>Calculate the <em>n</em>-th Fibonacci number.</p>
+
+<p><em>Input:</em> An integer <em>n</em>.</p>
+
+<p><em>Output:</em> <em>n</em>-th Fibonacci number.</p>
+
+<p>Fn = F(n-1) + F(n-2)</p>
+
+<p>Fibonacci numbers are defined recursively:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    F(n) = 
+
+       n                  if n is 0 or 1
+
+       F(n-1) + F(n-2)    if n ≥ 2  
+</code></pre></div></div>
+
+<p><br />
+<strong>Input format</strong>: An integer <em>n</em>.</p>
+
+<p><strong>Output format</strong>: Fn.</p>
+
+<p><strong>Example</strong>:</p>
+
+<p>Input:</p>
+
+<p>10</p>
+
+<p>Output:</p>
+
+<p>55</p>
+
+<h2 id="naive-algorithm">Naive algorithm</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fibonacci(n):
+if n ≤ 1:
+    return n
+return fibonacci(n-1) + fibonacci(n-2)            
+</code></pre></div></div>
+<p><br /></p>
+<h2 id="fast-algorithm">Fast algorithm</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fibonacciList(n):
+create an array F(0...n)
+F[0] &lt;- 0
+F[1] &lt;- 1
+for i from 2 to n:
+    F[i] &lt;- F[i-1] + F[i-2]
+return F[n]         
+</code></pre></div></div>
+<p><br /></p>
+<h2 id="python-implementation">Python implementation</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">number_list</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">number_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">number_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">number_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_list</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">number_list</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">number_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</code></pre></div></div>
+<p><br />
+<a href="https://github.com/mauroLaine/algorithms/blob/main/w2/fibonacci.py">Completed code</a></p>
+:ET

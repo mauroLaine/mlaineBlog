@@ -91,4 +91,5 @@ def max_pairwise_product(numbers):
     return numbers[index1] * numbers[index2]
 ```
 <br>
+<br>
 [Full code](https://github.com/mauroLaine/algorithms/blob/main/w1/max_pairwise_product.py)

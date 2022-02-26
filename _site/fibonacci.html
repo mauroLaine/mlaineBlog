@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Maximum Pairwise Product</title>
-  <meta name='description' content='Get the maximum pairwise product of two different elements in a sequence of non-negative integers.'>
+  <title>Fibonacci Number</title>
+  <meta name='description' content='Calculate the _n_-th Fibonacci number.'>
 
-  <link rel="canonical" href="http://localhost:4000/maximum-pairwise-product">
+  <link rel="canonical" href="http://localhost:4000/fibonacci">
   <link rel="alternate" type="application/rss+xml" title="Mauricio Laine" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maximum Pairwise Product – Mauricio Laine">
-  <meta name="twitter:description" content="Get the maximum pairwise product of two different elements in a sequence of non-negative integers.">
-  <meta name="twitter:image:src" content="http://localhost:4000/images/05-2.jpg">
+  <meta name="twitter:title" content="Fibonacci Number – Mauricio Laine">
+  <meta name="twitter:description" content="Calculate the _n_-th Fibonacci number.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/02.jpg">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Maximum Pairwise Product – Mauricio Laine" />
-  <meta property="og:description" content="Get the maximum pairwise product of two different elements in a sequence of non-negative integers." />
-  <meta property="og:image" content="http://localhost:4000/images/05-2.jpg" />
+  <meta property="og:title" content="Fibonacci Number – Mauricio Laine" />
+  <meta property="og:description" content="Calculate the _n_-th Fibonacci number." />
+  <meta property="og:image" content="http://localhost:4000/images/02.jpg" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
@@ -172,7 +172,7 @@
   <div class="row">
     <div class="col col-12">
       <div class="post-image">
-        <img src="/images/05-2.jpg" alt="Maximum Pairwise Product">
+        <img src="/images/02.jpg" alt="Fibonacci Number">
       </div>
     </div>
   </div>
@@ -183,11 +183,12 @@
 <div class="container animate">
 
   <div class="post__info">
-    <h1 class="post__title">Maximum Pairwise Product</h1>
+    <h1 class="post__title">Fibonacci Number</h1>
     <div class="post__meta">
       <time class="post__date"
-        datetime="2021-02-26T17:23:45-08:00">26 February 2021</time> – <span
-        class="post__minutes">  2 min read 
+        datetime="2021-03-10T17:23:45-08:00">10 March 2021</time> – <span
+        class="post__minutes">  1 min read
+        
       </span>
     </div>
   </div>
@@ -195,113 +196,69 @@
   <article class="post">
 
     <div class="post__content">
-      <h1 id="maximum-pairwise-product">Maximum Pairwise Product</h1>
+      <h1 id="fibonacci-number">Fibonacci Number</h1>
 
-<p>Get the maximum pairwise product of two different elements in a sequence of non-negative integers.</p>
+<p>Calculate the <em>n</em>-th Fibonacci number.</p>
 
-<p><em>Input:</em> A sequence of non-negative integers.</p>
+<p><em>Input:</em> An integer <em>n</em>.</p>
 
-<p><em>Output:</em> The maximum value that can be obtained by multiplying two different elements from the integer sequence.</p>
+<p><em>Output:</em> <em>n</em>-th Fibonacci number.</p>
 
-<p>Given a sequence of non-negative integers <em>a1</em>,…,<em>an</em>, compute:</p>
-<blockquote>
-  <p>max <em>ai</em> * <em>aj</em> where 1 ≤ <em>i</em> ≠ <em>j</em> ≤ <em>n</em></p>
-</blockquote>
+<p>Fn = F(n-1) + F(n-2)</p>
 
-<p>Note that <em>i</em> and <em>j</em> should be different, but it may be the case that <em>ai</em> = <em>aj</em>.</p>
+<p>Fibonacci numbers are defined recursively:</p>
 
-<p><strong>Input format</strong>: The first line contains an integer <em>n</em>. The next cointains a sequence of <em>n</em> non-negative integers where <em>a1</em>,…,<em>an</em> are separated by spaces.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    F(n) = 
 
-<p><strong>Output format</strong>: The maximun pairwise product.</p>
+       n                  if n is 0 or 1
+
+       F(n-1) + F(n-2)    if n ≥ 2  
+</code></pre></div></div>
+
+<p><br />
+<strong>Input format</strong>: An integer <em>n</em>.</p>
+
+<p><strong>Output format</strong>: Fn.</p>
 
 <p><strong>Example</strong>:</p>
 
 <p>Input:</p>
 
-<p>3</p>
-
-<p>2 7 4</p>
+<p>10</p>
 
 <p>Output:</p>
 
-<p>28</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td><strong>2</strong></td>
-      <td><strong>7</strong></td>
-      <td><strong>4</strong></td>
-    </tr>
-    <tr>
-      <td><strong>2</strong></td>
-      <td> </td>
-      <td>14</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>7</strong></td>
-      <td>14</td>
-      <td> </td>
-      <td><strong>28</strong></td>
-    </tr>
-    <tr>
-      <td><strong>4</strong></td>
-      <td>8</td>
-      <td>28</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<p>55</p>
 
 <h2 id="naive-algorithm">Naive algorithm</h2>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maxPairwiseProductNaive(A[1..n]):
-product &lt;- 0
-for i from 1 to n:
-  from j from 1 to n:
-    if i ≠ j:
-      if product &lt; A[i]*A[j]:
-        product &lt;- A[i]*A[j]
-return product        
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fibonacci(n):
+if n ≤ 1:
+    return n
+return fibonacci(n-1) + fibonacci(n-2)            
 </code></pre></div></div>
 <p><br /></p>
 <h2 id="fast-algorithm">Fast algorithm</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maxPairwiseProductFast(A[1..n]):
-index1 &lt;- 1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fibonacciList(n):
+create an array F(0...n)
+F[0] &lt;- 0
+F[1] &lt;- 1
 for i from 2 to n:
-  if A[i] &gt; A[index1]:
-    index1 &lt;- i
-if index1 = 1:
-  index2 = 2
-else
-  index2 = 1
-from i from 1 to n:
-  if i ≠ index1 and A[i] &gt; A[index2]:
-    index2 &lt;- i
-return A[index1] * A[index2]        
+    F[i] &lt;- F[i-1] + F[i-2]
+return F[n]         
 </code></pre></div></div>
 <p><br /></p>
 <h2 id="python-implementation">Python implementation</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">max_pairwise_product</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-    <span class="n">index1</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index1</span><span class="p">]:</span>
-            <span class="n">index1</span> <span class="o">=</span> <span class="n">index</span>
-    <span class="k">if</span> <span class="n">index1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">index2</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">index2</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">index</span> <span class="o">!=</span> <span class="n">index1</span> <span class="ow">and</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index2</span><span class="p">]:</span>
-            <span class="n">index2</span> <span class="o">=</span> <span class="n">index</span>
-    <span class="k">return</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span> <span class="o">*</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index2</span><span class="p">]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">number_list</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">number_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">number_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">number_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_list</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">number_list</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">number_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 </code></pre></div></div>
 <p><br />
 <br />
-<a href="https://github.com/mauroLaine/algorithms/blob/main/w1/max_pairwise_product.py">Full code</a></p>
+<a href="https://github.com/mauroLaine/algorithms/blob/main/w2/fibonacci.py">Full code</a></p>
 
     </div>
 

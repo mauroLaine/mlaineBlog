@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Maximum Pairwise Product</title>
-  <meta name='description' content='Get the maximum pairwise product of two different elements in a sequence of non-negative integers.'>
+  <title>Greatest Common Divisor</title>
+  <meta name='description' content='Calculate the greatest common divisor fo two positive integers.'>
 
-  <link rel="canonical" href="http://localhost:4000/maximum-pairwise-product">
+  <link rel="canonical" href="http://localhost:4000/gcd">
   <link rel="alternate" type="application/rss+xml" title="Mauricio Laine" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maximum Pairwise Product – Mauricio Laine">
-  <meta name="twitter:description" content="Get the maximum pairwise product of two different elements in a sequence of non-negative integers.">
-  <meta name="twitter:image:src" content="http://localhost:4000/images/05-2.jpg">
+  <meta name="twitter:title" content="Greatest Common Divisor – Mauricio Laine">
+  <meta name="twitter:description" content="Calculate the greatest common divisor fo two positive integers.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/12.jpg">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Maximum Pairwise Product – Mauricio Laine" />
-  <meta property="og:description" content="Get the maximum pairwise product of two different elements in a sequence of non-negative integers." />
-  <meta property="og:image" content="http://localhost:4000/images/05-2.jpg" />
+  <meta property="og:title" content="Greatest Common Divisor – Mauricio Laine" />
+  <meta property="og:description" content="Calculate the greatest common divisor fo two positive integers." />
+  <meta property="og:image" content="http://localhost:4000/images/12.jpg" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
@@ -172,7 +172,7 @@
   <div class="row">
     <div class="col col-12">
       <div class="post-image">
-        <img src="/images/05-2.jpg" alt="Maximum Pairwise Product">
+        <img src="/images/12.jpg" alt="Greatest Common Divisor">
       </div>
     </div>
   </div>
@@ -183,11 +183,12 @@
 <div class="container animate">
 
   <div class="post__info">
-    <h1 class="post__title">Maximum Pairwise Product</h1>
+    <h1 class="post__title">Greatest Common Divisor</h1>
     <div class="post__meta">
       <time class="post__date"
-        datetime="2021-02-26T17:23:45-08:00">26 February 2021</time> – <span
-        class="post__minutes">  2 min read 
+        datetime="2021-03-14T18:23:45-07:00">14 March 2021</time> – <span
+        class="post__minutes">  1 min read
+        
       </span>
     </div>
   </div>
@@ -195,113 +196,58 @@
   <article class="post">
 
     <div class="post__content">
-      <h1 id="maximum-pairwise-product">Maximum Pairwise Product</h1>
+      <h1 id="greatest-common-divisor">Greatest Common Divisor</h1>
 
-<p>Get the maximum pairwise product of two different elements in a sequence of non-negative integers.</p>
+<p>Calculate the greatest common divisor fo two positive integers.</p>
 
-<p><em>Input:</em> A sequence of non-negative integers.</p>
+<p><em>Input:</em> Two positive integers.</p>
 
-<p><em>Output:</em> The maximum value that can be obtained by multiplying two different elements from the integer sequence.</p>
+<p><em>Output:</em> The greatest common divisor.</p>
 
-<p>Given a sequence of non-negative integers <em>a1</em>,…,<em>an</em>, compute:</p>
-<blockquote>
-  <p>max <em>ai</em> * <em>aj</em> where 1 ≤ <em>i</em> ≠ <em>j</em> ≤ <em>n</em></p>
-</blockquote>
+<p>The greatest common divisor GCD(<em>a</em>, <em>b</em>) of two positive integers <em>a</em> and <em>b</em> is the largest integer <em>d</em> that divides both <em>a</em> and <em>b</em>.</p>
 
-<p>Note that <em>i</em> and <em>j</em> should be different, but it may be the case that <em>ai</em> = <em>aj</em>.</p>
+<p><strong>Input format</strong>: Two integers <em>a</em> and <em>b</em> separated by a space.</p>
 
-<p><strong>Input format</strong>: The first line contains an integer <em>n</em>. The next cointains a sequence of <em>n</em> non-negative integers where <em>a1</em>,…,<em>an</em> are separated by spaces.</p>
-
-<p><strong>Output format</strong>: The maximun pairwise product.</p>
+<p><strong>Output format</strong>: GCD(<em>a</em>, <em>b</em>).</p>
 
 <p><strong>Example</strong>:</p>
 
 <p>Input:</p>
 
-<p>3</p>
-
-<p>2 7 4</p>
+<p>3918848 1653264</p>
 
 <p>Output:</p>
 
-<p>28</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td><strong>2</strong></td>
-      <td><strong>7</strong></td>
-      <td><strong>4</strong></td>
-    </tr>
-    <tr>
-      <td><strong>2</strong></td>
-      <td> </td>
-      <td>14</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>7</strong></td>
-      <td>14</td>
-      <td> </td>
-      <td><strong>28</strong></td>
-    </tr>
-    <tr>
-      <td><strong>4</strong></td>
-      <td>8</td>
-      <td>28</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<p>61232</p>
 
 <h2 id="naive-algorithm">Naive algorithm</h2>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maxPairwiseProductNaive(A[1..n]):
-product &lt;- 0
-for i from 1 to n:
-  from j from 1 to n:
-    if i ≠ j:
-      if product &lt; A[i]*A[j]:
-        product &lt;- A[i]*A[j]
-return product        
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GCD(a, b):
+best &lt;- 0
+for d from 1 to a+b:
+    if (d/a and d/b):
+        best &lt;- d
+return best            
 </code></pre></div></div>
 <p><br /></p>
 <h2 id="fast-algorithm">Fast algorithm</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maxPairwiseProductFast(A[1..n]):
-index1 &lt;- 1
-for i from 2 to n:
-  if A[i] &gt; A[index1]:
-    index1 &lt;- i
-if index1 = 1:
-  index2 = 2
-else
-  index2 = 1
-from i from 1 to n:
-  if i ≠ index1 and A[i] &gt; A[index2]:
-    index2 &lt;- i
-return A[index1] * A[index2]        
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>euclidGCD(a, b):
+if b = 0:
+    return a
+aPrima &lt;- the reminder when a is divided by b    
+return euclidGCD(b, aPrima)         
 </code></pre></div></div>
 <p><br /></p>
 <h2 id="python-implementation">Python implementation</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">max_pairwise_product</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-    <span class="n">index1</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index1</span><span class="p">]:</span>
-            <span class="n">index1</span> <span class="o">=</span> <span class="n">index</span>
-    <span class="k">if</span> <span class="n">index1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">index2</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">index2</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">index</span> <span class="o">!=</span> <span class="n">index1</span> <span class="ow">and</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index2</span><span class="p">]:</span>
-            <span class="n">index2</span> <span class="o">=</span> <span class="n">index</span>
-    <span class="k">return</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span> <span class="o">*</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index2</span><span class="p">]</span>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">euclidGCD</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="n">aP</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">euclidGCD</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">aP</span><span class="p">)</span>
 </code></pre></div></div>
 <p><br />
 <br />
-<a href="https://github.com/mauroLaine/algorithms/blob/main/w1/max_pairwise_product.py">Full code</a></p>
+<a href="https://github.com/mauroLaine/algorithms/blob/main/w2/gcd.py">Completed code</a></p>
 
     </div>
 

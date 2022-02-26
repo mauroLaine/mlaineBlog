@@ -1,0 +1,53 @@
+I"Ü<h1 id="greatest-common-divisor">Greatest Common Divisor</h1>
+
+<p>Calculate the greatest common divisor fo two positive integers.</p>
+
+<p><em>Input:</em> Two positive integers.</p>
+
+<p><em>Output:</em> The greatest common divisor.</p>
+
+<p>The greatest common divisor GCD(<em>a</em>, <em>b</em>) of two positive integers <em>a</em> and <em>b</em> is the largest integer <em>d</em> that divides both <em>a</em> and <em>b</em>.</p>
+
+<p><strong>Input format</strong>: Two integers <em>a</em> and <em>b</em> separated by a space.</p>
+
+<p><strong>Output format</strong>: GCD(<em>a</em>, <em>b</em>).</p>
+
+<p><strong>Example</strong>:</p>
+
+<p>Input:</p>
+
+<p>3918848 1653264</p>
+
+<p>Output:</p>
+
+<p>61232</p>
+
+<h2 id="naive-algorithm">Naive algorithm</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GCD(n):
+best &lt;- 0
+for d from 1 to a+b:
+    if (d/a and d/b):
+        best &lt;- d
+return best            
+</code></pre></div></div>
+<h2 id="fast-algorithm">Fast algorithm</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>euclidGCD(a, b):
+if b = 0:
+    return a
+aPrima &lt;- the reminder when a is divided by b    
+return euclidGCD(b, aPrima)         
+</code></pre></div></div>
+
+<h2 id="python-implementation">Python implementation</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">euclidGCD</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="n">aP</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">euclidGCD</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">aP</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/mauroLaine/algorithms/blob/main/w2/gcd.py">Completed code</a></p>
+:ET
