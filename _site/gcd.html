@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name='description' content='Programming blog focused on algorithm problem solving & Android best practices.'>
+  <title>Greatest Common Divisor</title>
+  <meta name='description' content='Calculate the greatest common divisor fo two positive integers.'>
 
-  <link rel="canonical" href="http://localhost:4000/about/">
+  <link rel="canonical" href="http://localhost:4000/gcd">
   <link rel="alternate" type="application/rss+xml" title="Mauricio Laine" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About – Mauricio Laine">
-  <meta name="twitter:description" content="">
-  <meta name="twitter:image:src" content="">
+  <meta name="twitter:title" content="Greatest Common Divisor – Mauricio Laine">
+  <meta name="twitter:description" content="Calculate the greatest common divisor fo two positive integers.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/12.jpg">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="About – Mauricio Laine" />
-  <meta property="og:description" content="" />
-  <meta property="og:image" content="" />
+  <meta property="og:title" content="Greatest Common Divisor – Mauricio Laine" />
+  <meta property="og:description" content="Calculate the greatest common divisor fo two positive integers." />
+  <meta property="og:image" content="http://localhost:4000/images/12.jpg" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
@@ -168,37 +168,109 @@
     <!-- begin content -->
     <main class="content" aria-label="Content">
       
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="post-image">
+        <img src="/images/12.jpg" alt="Greatest Common Divisor">
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- begin page -->
+
+<!-- begin post -->
 <div class="container animate">
 
-  <div class="page__info">
-    <h1 class="page__title">About</h1>
+  <div class="post__info">
+    <h1 class="post__title">Greatest Common Divisor</h1>
+    <div class="post__meta">
+      <time class="post__date"
+        datetime="2021-03-14T18:23:45-07:00">14 March 2021</time> – <span
+        class="post__minutes">  1 min read
+        
+      </span>
+    </div>
   </div>
 
-  <article class="page">
-    <div class="page__content">
-      <div class="gallery-box">
-  <div class="gallery">
-    <img src="/images/mlaine.jpeg" />
-  </div>
-</div>
+  <article class="post">
 
-<p>Hi! My name is Mauricio Laine, and I’m a software engineer interested in mobile Android development, machine learning, algorithms, data structures and web application development.</p>
+    <div class="post__content">
+      <h1 id="greatest-common-divisor">Greatest Common Divisor</h1>
 
-<p>I’m currently pursuing a Master’s Degree in Computer Science &amp; Engineering at the University of Washington. I have been working in the field of mobile app development for the past five years, and I have more than seven years of professional experience.</p>
+<p>Calculate the greatest common divisor fo two positive integers.</p>
 
-<p>My current focus is on machine learning mechanisms to identify objects in mobile applications. Also, I’m learning React Native to build native apps.</p>
+<p><em>Input:</em> Two positive integers.</p>
 
-<p>I’m passionate about solving computational problems, trying new algorithms, and implementing solutions efficiently.</p>
+<p><em>Output:</em> The greatest common divisor.</p>
 
-<p>When not coding. I’m usually hiking, taking <a href="https://ml-photos.com/">photos</a>, or <a href="https://lainejourney.com/">traveling</a>.</p>
+<p>The greatest common divisor GCD(<em>a</em>, <em>b</em>) of two positive integers <em>a</em> and <em>b</em> is the largest integer <em>d</em> that divides both <em>a</em> and <em>b</em>.</p>
+
+<p><strong>Input format</strong>: Two integers <em>a</em> and <em>b</em> separated by a space.</p>
+
+<p><strong>Output format</strong>: GCD(<em>a</em>, <em>b</em>).</p>
+
+<p><strong>Example</strong>:</p>
+
+<p>Input:</p>
+
+<p>3918848 1653264</p>
+
+<p>Output:</p>
+
+<p>61232</p>
+
+<h2 id="naive-algorithm">Naive algorithm</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GCD(a, b):
+best &lt;- 0
+for d from 1 to a+b:
+    if (d/a and d/b):
+        best &lt;- d
+return best            
+</code></pre></div></div>
+<p><br /></p>
+<h2 id="fast-algorithm">Fast algorithm</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>euclidGCD(a, b):
+if b = 0:
+    return a
+aPrima &lt;- the reminder when a is divided by b    
+return euclidGCD(b, aPrima)         
+</code></pre></div></div>
+<p><br /></p>
+<h2 id="python-implementation">Python implementation</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">euclidGCD</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="n">aP</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">euclidGCD</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">aP</span><span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<a href="https://github.com/mauroLaine/algorithms/blob/main/w2/gcd.py">Completed code</a></p>
 
     </div>
-  </article>
 
+    <div class="post__bottom">
+      
+      
+      <div class="post__tags">
+        
+        <a href="/tag/python" class="post__tag">python</a>
+        
+        <a href="/tag/algorithms" class="post__tag">algorithms</a>
+        
+      </div>
+      
+    </div>
+
+    
+
+    
+
+  </article>
 </div>
-<!-- end page -->
+<!-- end post -->
     </main>
     <!-- end content -->
 

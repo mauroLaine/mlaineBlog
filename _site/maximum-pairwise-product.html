@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name='description' content='Programming blog focused on algorithm problem solving & Android best practices.'>
+  <title>Maximum Pairwise Product</title>
+  <meta name='description' content='Get the maximum pairwise product of two different elements in a sequence of non-negative integers.'>
 
-  <link rel="canonical" href="http://localhost:4000/about/">
+  <link rel="canonical" href="http://localhost:4000/maximum-pairwise-product">
   <link rel="alternate" type="application/rss+xml" title="Mauricio Laine" href="/feed.xml">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About – Mauricio Laine">
-  <meta name="twitter:description" content="">
-  <meta name="twitter:image:src" content="">
+  <meta name="twitter:title" content="Maximum Pairwise Product – Mauricio Laine">
+  <meta name="twitter:description" content="Get the maximum pairwise product of two different elements in a sequence of non-negative integers.">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/05-2.jpg">
 
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="About – Mauricio Laine" />
-  <meta property="og:description" content="" />
-  <meta property="og:image" content="" />
+  <meta property="og:title" content="Maximum Pairwise Product – Mauricio Laine" />
+  <meta property="og:description" content="Get the maximum pairwise product of two different elements in a sequence of non-negative integers." />
+  <meta property="og:image" content="http://localhost:4000/images/05-2.jpg" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
@@ -168,37 +168,163 @@
     <!-- begin content -->
     <main class="content" aria-label="Content">
       
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="post-image">
+        <img src="/images/05-2.jpg" alt="Maximum Pairwise Product">
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- begin page -->
+
+<!-- begin post -->
 <div class="container animate">
 
-  <div class="page__info">
-    <h1 class="page__title">About</h1>
+  <div class="post__info">
+    <h1 class="post__title">Maximum Pairwise Product</h1>
+    <div class="post__meta">
+      <time class="post__date"
+        datetime="2021-02-26T17:23:45-08:00">26 February 2021</time> – <span
+        class="post__minutes">  2 min read 
+      </span>
+    </div>
   </div>
 
-  <article class="page">
-    <div class="page__content">
-      <div class="gallery-box">
-  <div class="gallery">
-    <img src="/images/mlaine.jpeg" />
-  </div>
-</div>
+  <article class="post">
 
-<p>Hi! My name is Mauricio Laine, and I’m a software engineer interested in mobile Android development, machine learning, algorithms, data structures and web application development.</p>
+    <div class="post__content">
+      <h1 id="maximum-pairwise-product">Maximum Pairwise Product</h1>
 
-<p>I’m currently pursuing a Master’s Degree in Computer Science &amp; Engineering at the University of Washington. I have been working in the field of mobile app development for the past five years, and I have more than seven years of professional experience.</p>
+<p>Get the maximum pairwise product of two different elements in a sequence of non-negative integers.</p>
 
-<p>My current focus is on machine learning mechanisms to identify objects in mobile applications. Also, I’m learning React Native to build native apps.</p>
+<p><em>Input:</em> A sequence of non-negative integers.</p>
 
-<p>I’m passionate about solving computational problems, trying new algorithms, and implementing solutions efficiently.</p>
+<p><em>Output:</em> The maximum value that can be obtained by multiplying two different elements from the integer sequence.</p>
 
-<p>When not coding. I’m usually hiking, taking <a href="https://ml-photos.com/">photos</a>, or <a href="https://lainejourney.com/">traveling</a>.</p>
+<p>Given a sequence of non-negative integers <em>a1</em>,…,<em>an</em>, compute:</p>
+<blockquote>
+  <p>max <em>ai</em> * <em>aj</em> where 1 ≤ <em>i</em> ≠ <em>j</em> ≤ <em>n</em></p>
+</blockquote>
+
+<p>Note that <em>i</em> and <em>j</em> should be different, but it may be the case that <em>ai</em> = <em>aj</em>.</p>
+
+<p><strong>Input format</strong>: The first line contains an integer <em>n</em>. The next cointains a sequence of <em>n</em> non-negative integers where <em>a1</em>,…,<em>an</em> are separated by spaces.</p>
+
+<p><strong>Output format</strong>: The maximun pairwise product.</p>
+
+<p><strong>Example</strong>:</p>
+
+<p>Input:</p>
+
+<p>3</p>
+
+<p>2 7 4</p>
+
+<p>Output:</p>
+
+<p>28</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td><strong>2</strong></td>
+      <td><strong>7</strong></td>
+      <td><strong>4</strong></td>
+    </tr>
+    <tr>
+      <td><strong>2</strong></td>
+      <td> </td>
+      <td>14</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>7</strong></td>
+      <td>14</td>
+      <td> </td>
+      <td><strong>28</strong></td>
+    </tr>
+    <tr>
+      <td><strong>4</strong></td>
+      <td>8</td>
+      <td>28</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="naive-algorithm">Naive algorithm</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maxPairwiseProductNaive(A[1..n]):
+product &lt;- 0
+for i from 1 to n:
+  from j from 1 to n:
+    if i ≠ j:
+      if product &lt; A[i]*A[j]:
+        product &lt;- A[i]*A[j]
+return product        
+</code></pre></div></div>
+<p><br /></p>
+<h2 id="fast-algorithm">Fast algorithm</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maxPairwiseProductFast(A[1..n]):
+index1 &lt;- 1
+for i from 2 to n:
+  if A[i] &gt; A[index1]:
+    index1 &lt;- i
+if index1 = 1:
+  index2 = 2
+else
+  index2 = 1
+from i from 1 to n:
+  if i ≠ index1 and A[i] &gt; A[index2]:
+    index2 &lt;- i
+return A[index1] * A[index2]        
+</code></pre></div></div>
+<p><br /></p>
+<h2 id="python-implementation">Python implementation</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">max_pairwise_product</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">index1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index1</span><span class="p">]:</span>
+            <span class="n">index1</span> <span class="o">=</span> <span class="n">index</span>
+    <span class="k">if</span> <span class="n">index1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">index2</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">index2</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">!=</span> <span class="n">index1</span> <span class="ow">and</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index2</span><span class="p">]:</span>
+            <span class="n">index2</span> <span class="o">=</span> <span class="n">index</span>
+    <span class="k">return</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span> <span class="o">*</span> <span class="n">numbers</span><span class="p">[</span><span class="n">index2</span><span class="p">]</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<a href="https://github.com/mauroLaine/algorithms/blob/main/w1/max_pairwise_product.py">Full code</a></p>
 
     </div>
-  </article>
 
+    <div class="post__bottom">
+      
+      
+      <div class="post__tags">
+        
+        <a href="/tag/python" class="post__tag">python</a>
+        
+        <a href="/tag/algorithms" class="post__tag">algorithms</a>
+        
+      </div>
+      
+    </div>
+
+    
+
+    
+
+  </article>
 </div>
-<!-- end page -->
+<!-- end post -->
     </main>
     <!-- end content -->
 
