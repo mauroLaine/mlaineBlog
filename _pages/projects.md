@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
-image: /images/12-1.jpg
+image: /images/12.jpg
 tags:   [android, projects]
 ---
 

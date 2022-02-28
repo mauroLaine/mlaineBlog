@@ -14,6 +14,7 @@ author:
   avatar: '/images/mlaine.jpeg'
   show_author: false
   share_enabled: false
+  tagging_enabled: false
 
 social:
 - {icon: "ion-logo-github", label: Github, link: "https://github.com/mauroLaine"}
@@ -29,6 +30,7 @@ hero:
   hero__title: Hey, I’m Mauricio! Software Developer.
   hero__description: I’m a software engineer interested in mobile Android development, machine learning, algorithms, data structures, and web application development.
   hero__image: '/images/mlaine.jpeg'
+
 
 
 #-------------------------------
