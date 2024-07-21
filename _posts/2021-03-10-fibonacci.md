@@ -5,7 +5,7 @@ description: Calculate the _n_-th Fibonacci number.
 date:   2021-03-10 17:23:45 -0800
 image:  '/images/02.jpg'
 tags:   [python, algorithms]
-
+published: false
 ---
 
 # Fibonacci Number
