@@ -1,0 +1,10 @@
+I"í<h1 id="cipherescom">Cipherescom</h1>
+
+<p>In the era of rapid digitalization, the encryption of sensitive information has risen to the forefront of technological priorities. The Cipherescom mobile application, aspires to redefine the approach toward data privacy and security by leveraging advanced cryptography techniques. By using the deviceâ€™s camera, the application captures an image, extracts any embed- ded text using the advanced capabilities of ML Kit Text Recognition v2 API, and subsequently encrypts the content using AES encryption in GCM mode with a robust 256-bit key. The final encrypted file provides a comprehensive security layer, preventing unauthorized access and en- suring the sanctity of confidential information.</p>
+
+<h2 id="video-demo">Video Demo</h2>
+
+<p><iframe src="https://www.youtube.com/embed/HXjQ7TOdbhw" frameborder="0" allowfullscreen=""></iframe></p>
+
+<p>You can find the source code at GitHub: <a href="https://github.com/mauroLaine/CipherText/">Cipherescom</a></p>
+:ET
